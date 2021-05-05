@@ -1,20 +1,30 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <KeyBoard />
+  <ThemeToggle />
+  <Neummorphic />
+  <Pencil />
 </template>
 
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import KeyBoard from "./components/KeyBoard.vue";
+import Neummorphic from "./components/Neummorphic.vue";
+import ThemeToggle from "./components/ThemeToggle.vue";
+import Pencil from "./components/Pencil.vue";
 
-export default {
-  name: "App",
+@Options({
   components: {
-    HelloWorld,
+    KeyBoard,
+    Neummorphic,
+    Pencil,
+    ThemeToggle,
   },
-};
+})
+export default class App extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

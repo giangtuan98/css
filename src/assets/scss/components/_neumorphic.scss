@@ -1,0 +1,167 @@
+:root {
+  --ring-color: red;
+}
+
+@mixin ring($x) {
+  width: (60px * $x);
+  height: (60px * $x);
+  z-index: 10-$x;
+  animation: "glow#{$x}" 5s infinite;
+}
+
+.neumorphic {
+  margin-top: 20px;
+
+  .rings {
+    position: relative;
+    margin: 1px;
+    height: 400px;
+  }
+
+  .ring {
+    border: 10px solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -10px -10px 15px rgb(255 255 255 / 30%),
+      10px 10px 15px rgb(70 70 70 / 15%),
+      inset -10px -10px 15px rgb(255 255 255 / 30%),
+      inset 10px 10px 15px rgb(70 70 70 / 15%);
+
+    &.--first {
+      @include ring(1);
+    }
+
+    &.--second {
+      @include ring(2);
+    }
+
+    &.--third {
+      @include ring(3);
+    }
+
+    &.--fourth {
+      @include ring(4);
+    }
+
+    &.--fifth {
+      @include ring(5);
+    }
+  }
+
+  .pick-color {
+    text-align: center;
+
+    .color {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: -10px -10px 15px rgb(255 255 255 / 30%),
+        10px 10px 15px rgb(70 70 70 / 15%),
+        inset -10px -10px 15px rgb(255 255 255 / 30%),
+        inset 10px 10px 15px rgb(70 70 70 / 15%);
+
+      &.--green {
+        background-color: green;
+      }
+
+      &.--yellow {
+        background-color: yellow;
+      }
+
+      &.--blue {
+        background-color: blue;
+      }
+
+      &.--purple {
+        background-color: purple;
+      }
+    }
+  }
+}
+@keyframes glow1 {
+  10% {
+    background-color: #ececec;
+  }
+  20% {
+    background-color: var(--ring-color);
+  }
+
+  90% {
+    background-color: var(--ring-color);
+  }
+
+  100% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow2 {
+  20% {
+    background-color: #ececec;
+  }
+  30% {
+    background-color: var(--ring-color);
+  }
+
+  80% {
+    background-color: var(--ring-color);
+  }
+
+  90% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow3 {
+  30% {
+    background-color: #ececec;
+  }
+  40% {
+    background-color: var(--ring-color);
+  }
+
+  70% {
+    background-color: var(--ring-color);
+  }
+
+  80% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow4 {
+  40% {
+    background-color: #ececec;
+  }
+  50% {
+    background-color: var(--ring-color);
+  }
+
+  60% {
+    background-color: var(--ring-color);
+  }
+
+  70% {
+    background-color: yellow;
+  }
+}
+
+@keyframes glow5 {
+  50% {
+    background-color: #ececec;
+  }
+
+  60% {
+    background-color: blue;
+  }
+
+  70% {
+    background-color: #ececec;
+  }
+}
